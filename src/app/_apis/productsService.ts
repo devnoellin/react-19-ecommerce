@@ -9,6 +9,7 @@ export interface Product {
   category: string;
   tags: string[];
   is_new: boolean;
+  product_id: string;
 }
 
 export interface RecommendProductsResponse extends ApiResponse {
@@ -16,12 +17,11 @@ export interface RecommendProductsResponse extends ApiResponse {
 }
 
 export const fetchRecommendProducts = async () => {
-  try {
-    const response: RecommendProductsResponse = await axios.get("http://localhost:8080/api/v1/recommend-products");
+  const response: RecommendProductsResponse = await axios.get("http://localhost:8080/api/v1/recommend-products");
 
+  if (response?.result === "ok") {
     return response.list;
-  } catch (error) {
-    console.error("Failed to fetch recommended products:", error);
-    return [];
   }
+
+  throw new Error("Failed to fetch recommend products");
 };

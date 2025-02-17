@@ -6,6 +6,7 @@ export interface Product {
   category: string;
   tags: string[];
   is_new: boolean;
+  product_id: string;
 }
 
 export interface ProductState {

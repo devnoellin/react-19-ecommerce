@@ -23,15 +23,21 @@ export default function UserButton() {
 
   return (
     <div className="relative pr-4">
-      <VscAccount
-        className="cursor-pointer"
-        size={24}
+      <div
+        className="cursor-pointer relative z-50"
         onMouseEnter={() => setIsOpen(true)}
-      />
-
+      >
+        <VscAccount size={24} />
+      </div>
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg"
+          className="fixed inset-0 bg-opacity-0 z-40"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      {isOpen && (
+        <div
+          className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
           onMouseLeave={() => setIsOpen(false)}
         >
           <ul className="py-2 text-gray-700">

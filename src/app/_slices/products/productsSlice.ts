@@ -17,6 +17,7 @@ export const productSlice = createSlice({
         state.loading = true;
       })
       .addCase(getRecommendedProducts.fulfilled, (state, action) => {
+        console.log(action.payload)
         state.recommendProducts = action.payload;
         state.loading = false;
       })

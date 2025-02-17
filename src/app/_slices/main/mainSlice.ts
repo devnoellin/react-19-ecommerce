@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getSiteConfig } from './mainActions';
+import { initSite, getSiteConfig } from './mainActions';
 import { MainState } from "./mainTypes";
 
 const initialState: MainState = {
+  init: false,
+  error: false,
   siteConfig: {
     logo: '',
     currency: '',
@@ -15,8 +17,13 @@ const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getSiteConfig.fulfilled, (state, action) => {
-      state.siteConfig = action.payload || [];
+    builder.addCase(initSite.rejected, (state) => {
+      state.error = true;
+    })
+
+    builder.addCase(getSiteConfig.fulfilled, (state, { payload }) => {
+      state.init = true;
+      state.siteConfig = payload || [];
     })
   },
 });

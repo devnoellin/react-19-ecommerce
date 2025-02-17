@@ -1,4 +1,6 @@
 export interface MainState {
+  init: boolean;
+  error: boolean;
   siteConfig: SiteConfig;
 }
 

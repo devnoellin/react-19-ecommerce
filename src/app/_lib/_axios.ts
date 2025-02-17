@@ -30,7 +30,7 @@ axiosInstance.interceptors.response.use(
   (error) => {
     devLog("API Error:", error);
 
-    return Promise.reject(error.response?.data || "Oops, an error occurred!");
+    return Promise.reject(error?.response?.data || "Oops, an error occurred!");
   }
 );
 
