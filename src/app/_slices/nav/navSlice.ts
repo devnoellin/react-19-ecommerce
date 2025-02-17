@@ -6,7 +6,6 @@ const initialState: NavState = {
   navList: [],
 };
 
-// 📌 建立 Nav Slice
 const navSlice = createSlice({
   name: "nav",
   initialState,

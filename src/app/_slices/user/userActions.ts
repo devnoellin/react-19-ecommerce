@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "@/app/_lib/_axios";
-import { UserInfoResponse } from "./userTypes"; // 確保有 `UserInfoResponse` 的 Type 定義
+import { UserInfoResponse } from "./userTypes";
 
 export const getUserInfo = createAsyncThunk(
   "user/getUserInfo",
