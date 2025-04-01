@@ -1,10 +1,8 @@
-import { makeStore } from "@/app/_common/lib/store";
+import { store } from "@/app/_common/lib/store";
 import { getRecommendedProducts } from "@/app/_modules/products/slices/productsActions";
 import ProductCard from "@/app/_modules/products/ProductCard.client";
 
 export default async function RecommendProducts() {
-  const store = makeStore();
-
   await store.dispatch(getRecommendedProducts());
 
   const {
